@@ -33,7 +33,7 @@
                     document.getElementById("attendance").innerText = result.user.attendance_percentage + "%";
 
                     // Set the correct image source for the user
-                    document.getElementById("displayImage").src = `http://localhost:5000/get-image/${rollno}`;
+                    document.getElementById("displayImage").src = `https://mca-students.onrender.com/get-image/${rollno}`;
                 } else {
                     alert("Error fetching user data.");
                     window.location.href = "index.html";
