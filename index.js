@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Database Connection
-const db = mysql.createpool({
+const db = mysql.createPool({
     host:"bybimdiekjxs5r5y3bm6-mysql.services.clever-cloud.com",
     user:"ulpcyfzuikf5vyok",
     password:"Ov494YIrJ7EmCXGR27Gf",
