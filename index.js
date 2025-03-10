@@ -11,7 +11,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Database Connection
-const db = mysql.createPool({
+const pool = mysql.createPool({
     host:"bybimdiekjxs5r5y3bm6-mysql.services.clever-cloud.com",
     user:"ulpcyfzuikf5vyok",
     password:"Ov494YIrJ7EmCXGR27Gf",
@@ -20,7 +20,7 @@ const db = mysql.createPool({
    multipleStatements: true
 });
 // Check Database Connection
-db.query("SELECT 1", (err, results) => {
+pool.query("SELECT 1", (err, results) => {
     if (err) {
         console.error("❌ Database Connection Error: ", err);
     } else {
@@ -30,7 +30,7 @@ db.query("SELECT 1", (err, results) => {
 
 module.exports = pool;
 function handleDisconnect() {
-    db.connect(err => {
+    pool.connect(err => {
         if (err) {
             console.error("Database Connection Failed: " + err.message);
             setTimeout(handleDisconnect, 5000); // Retry after 5 seconds
@@ -39,7 +39,7 @@ function handleDisconnect() {
         }
     });
 
-    db.on('error', err => {
+    pool.on('error', err => {
         console.error("❌ Database Error: ", err);
         if (err.code === 'PROTOCOL_CONNECTION_LOST') {
             console.log("🔄 Reconnecting to the database...");
@@ -54,7 +54,7 @@ function handleDisconnect() {
 handleDisconnect();
 
 // Connect to MySQL
-db.connect(err => {
+pool.connect(err => {
     if (err) {
         console.error("Database Connection Failed: " + err.message);
         return;
@@ -72,7 +72,7 @@ app.post('/login', (req, res) => {
 
     const query = "SELECT rollno FROM students WHERE rollno = ? AND password = ?";
     
-    db.query(query, [rollno, password], (err, results) => {
+    pool.query(query, [rollno, password], (err, results) => {
         if (err) {
             console.error("Database Query Error: " + err.message);
             return res.status(500).json({ success: false, message: "Server Error!" });
@@ -96,7 +96,7 @@ app.get('/user/:rollno', (req, res) => {
 
     const query = "SELECT name, rollno, email, attendance_percentage FROM students WHERE rollno = ?";
     
-    db.query(query, [rollno], (err, results) => {
+    pool.query(query, [rollno], (err, results) => {
         if (err) {
             console.error("Database Query Error: ", err);
             return res.status(500).json({ success: false, message: "Server Error!" });
@@ -115,7 +115,7 @@ app.get("/get-image/:rollno", (req, res) => {
     const rollno = req.params.rollno;
     const sql = "SELECT image_data FROM students WHERE rollno = ?";
 
-    db.query(sql, [rollno], (err, result) => {
+    pool.query(sql, [rollno], (err, result) => {
         if (err) {
             console.error("❌ Database Query Failed:", err);
             return res.status(500).json({ error: "Database Query Failed", details: err.message });
