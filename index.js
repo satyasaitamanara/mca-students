@@ -19,39 +19,7 @@ const pool = mysql.createPool({
     connectionLimit: 10,
    multipleStatements: true
 });
-// Check Database Connection
-pool.query("SELECT 1", (err, results) => {
-    if (err) {
-        console.error("❌ Database Connection Error: ", err);
-    } else {
-        console.log("✅ Connection Pool Established!");
-    }
-});
 
-module.exports = pool;
-function handleDisconnect() {
-    pool.connect(err => {
-        if (err) {
-            console.error("Database Connection Failed: " + err.message);
-            setTimeout(handleDisconnect, 5000); // Retry after 5 seconds
-        } else {
-            console.log("✅ Connected to MySQL Database!");
-        }
-    });
-
-    pool.on('error', err => {
-        console.error("❌ Database Error: ", err);
-        if (err.code === 'PROTOCOL_CONNECTION_LOST') {
-            console.log("🔄 Reconnecting to the database...");
-            handleDisconnect();
-        } else {
-            throw err;
-        }
-    });
-}
-
-// Call the function to establish connection
-handleDisconnect();
 
 pool.getConnection((err, connection) => {
     if (err) {
