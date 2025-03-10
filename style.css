@@ -1,0 +1,171 @@
+/* style.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* Hides the horizontal scrollbar */
+  min-height: 100vh;
+}
+
+
+.aknu-logo{
+  height: 200px;
+  width: 100%;
+  padding-top: -10px;
+
+}
+.header-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  background-color: #0c84a0;
+  justify-content: space-between;
+}
+.header-logo div{
+  padding-right: 20px;
+  padding-left: 20px;
+  color: white;
+  font-family: 'ubuntu', serif;
+}
+.notification a{
+  background-color: rgb(248, 173, 186);
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+
+}
+.content{
+  display: flex;
+  flex-wrap: wrap;
+}
+.student-details {
+  max-width: 800px;
+  max-height: 1000px;
+  background-color: #0c84a0; 
+  height: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: auto;
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.student-details h2 {
+  text-align: left;
+  color: #383636;
+   margin-top: -10px;
+}
+.student-profile{
+  padding: 10px;
+}
+#rollno{
+  font-family: 'ubuntu', serif;
+  font-size: large;
+  font-weight: 300;
+  color: white;
+  padding-left: 5px;
+}
+#email{
+  font-family: 'ubuntu', serif;
+  font-size: large;
+  font-weight: 300;
+  color: white;
+  padding-left: 5px;
+}
+.detail-row {
+  display: flex;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.detail-label {
+  font-weight: bold;
+  color: #383636;
+}
+
+.detail-value {
+  color: #fffcfc;
+  padding-left: 10px;
+}
+
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .student-details {
+      padding: 15px;
+  }
+  .detail-row {
+      flex-direction: column;
+  }
+  .detail-label{
+    margin-bottom: 5px;
+  }
+}
+.content{
+  display: flex;
+ 
+  align-items: center;
+}
+.VC-img{
+  height: 60%;
+  width: 80%;
+  cursor: pointer;
+  max-width: 100%;
+}
+.student-img{
+  height: 200px;
+  width: 200px;  
+}
+#displayImage{
+  height: 180px;
+  width: 200px;   
+  padding-bottom: 20px;
+  cursor: pointer;
+}
+strong{
+  margin-top: 40px;
+  font-family: 'ubuntu', serif;
+ 
+}
+.student-img h3{
+  text-align: left;
+  color: #383636;
+  margin-top: 10px;
+  padding-bottom: 5px;
+}
+
+#attendance{
+  font-family: 'ubuntu', serif;
+  font-size: large;
+  font-weight: 300;
+  color: white;
+  padding-left: 5px; 
+ 
+}
+#carouselExampleIndicators{
+  max-width: 700px;
+  max-height: 700px;
+}
+.footer-img{
+  height: 55%;
+  width: 100%;
+  cursor: pointer;
+}

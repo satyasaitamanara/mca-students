@@ -1,0 +1,90 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Login Page</title>
+    <script>
+        async function validateForm(event) {
+            event.preventDefault();
+    
+            var rollno = document.getElementById("rollno").value;
+            var password = document.getElementById("password").value;
+    
+            if (rollno === "" || password === "") {
+                alert("Roll Number and Password cannot be empty!");
+                return;
+            }
+    
+            try {
+                const response = await fetch('http://localhost:5000/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ rollno, password })
+                });
+    
+                const result = await response.json();
+    
+                if (result.success) {
+                    localStorage.setItem('rollno', rollno);  // Store roll number properly
+                    window.location.href = "home.html";  // Redirect to home page
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error("Login error:", error);
+                alert("Server error! Please try again.");
+            }
+        }
+    </script>
+    
+    
+    
+</head>
+<body>
+
+    
+    <a href="https://front.codes/" class="logo" target="_blank"> </a>
+     
+    <div class="section">
+        <div class="container">
+            <div class="row full-height justify-content-center">
+                <div class="col-12 text-center align-self-center py-5">
+                    <div class="section pb-5 pt-5 pt-sm-2 text-center">
+                        <div class="card-3d-wrap mx-auto">
+                            <div class="card-3d-wrapper">
+                                <div class="card-front">
+                                    <div class="center-wrap">
+                                        <div class="section text-center">
+                                            <form id="loginForm" onsubmit="validateForm(event)">
+                                                <h4 class="mb-4 pb-3">Log In</h4>
+                                                <div class="form-group">
+                                                    <input type="text" name="roll" class="form-style"
+                                                        placeholder="Your Roll no" id="rollno" autocomplete="off">
+                                                        <i class="input-icon uil uil-at"></i>
+                                                </div>
+                                                 <div class="form-group mt-2">
+                                                    <input type="password" name="logpass" class="form-style"
+                                                        placeholder="Your Password" id="password" autocomplete="off">
+                                                    <i class="input-icon uil uil-lock-alt"></i>
+                                                </div>
+
+                                                <button type="submit" class="btn mt-4">Login</button>
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
