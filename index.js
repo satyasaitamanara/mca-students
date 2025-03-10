@@ -53,14 +53,16 @@ function handleDisconnect() {
 // Call the function to establish connection
 handleDisconnect();
 
-// Connect to MySQL
-pool.connect(err => {
+pool.getConnection((err, connection) => {
     if (err) {
-        console.error("Database Connection Failed: " + err.message);
-        return;
+        console.error("❌ Database Connection Error: ", err);
+    } else {
+        console.log("✅ Connected to Database!");
+        connection.release(); // Release the connection back to the pool
     }
-    console.log("Connected to MySQL Database!");
 });
+
+module.exports = pool;
 
 // Login API
 app.post('/login', (req, res) => {
