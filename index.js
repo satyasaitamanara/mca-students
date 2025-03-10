@@ -16,8 +16,31 @@ const db = mysql.createConnection({
     user:"ulpcyfzuikf5vyok",
     password:"Ov494YIrJ7EmCXGR27Gf",
     database:"bybimdiekjxs5r5y3bm6", 
-    connectionlimit:10
+   multipleStatements: true
 });
+function handleDisconnect() {
+    db.connect(err => {
+        if (err) {
+            console.error("Database Connection Failed: " + err.message);
+            setTimeout(handleDisconnect, 5000); // Retry after 5 seconds
+        } else {
+            console.log("✅ Connected to MySQL Database!");
+        }
+    });
+
+    db.on('error', err => {
+        console.error("❌ Database Error: ", err);
+        if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+            console.log("🔄 Reconnecting to the database...");
+            handleDisconnect();
+        } else {
+            throw err;
+        }
+    });
+}
+
+// Call the function to establish connection
+handleDisconnect();
 
 // Connect to MySQL
 db.connect(err => {
