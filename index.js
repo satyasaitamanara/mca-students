@@ -19,6 +19,16 @@ const db = mysql.createPool({
     connectionLimit: 10,
    multipleStatements: true
 });
+// Check Database Connection
+db.query("SELECT 1", (err, results) => {
+    if (err) {
+        console.error("❌ Database Connection Error: ", err);
+    } else {
+        console.log("✅ Connection Pool Established!");
+    }
+});
+
+module.exports = pool;
 function handleDisconnect() {
     db.connect(err => {
         if (err) {
