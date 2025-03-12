@@ -9,6 +9,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", async function () {
     const rollno = localStorage.getItem('rollno');
+    console.log(localStorage.getItem("rollno"));
 
     if (!rollno || rollno === "undefined") {
         alert("Error: You must log in first!");
