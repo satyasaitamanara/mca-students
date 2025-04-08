@@ -1,5 +1,3 @@
-/* style.css */
-
 * {
   margin: 0;
   padding: 0;
@@ -9,163 +7,166 @@
 body {
   display: flex;
   flex-direction: column;
-  overflow-x: hidden; /* Hides the horizontal scrollbar */
+  overflow-x: hidden;
   min-height: 100vh;
+  font-family: 'Ubuntu', sans-serif;
 }
 
-
-.aknu-logo{
-  height: 200px;
+/* Header logo section */
+.aknu-logo {
   width: 100%;
-  padding-top: -10px;
-
+  height: auto;
 }
-.header-logo{
+
+/* Navigation */
+.header-logo {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  width: 100%;
   background-color: #0c84a0;
-  justify-content: space-between;
-}
-.header-logo div{
-  padding-right: 20px;
-  padding-left: 20px;
-  color: white;
-  font-family: 'ubuntu', serif;
-}
-.notification a{
-  background-color: rgb(248, 173, 186);
+  padding: 10px;
+  gap: 10px;
 }
 
+.header-logo div {
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Notification */
+.notification a {
+  background-color: rgb(248, 173, 186);
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #000;
+  text-decoration: none;
+}
+
+/* Main content layout */
 main {
   flex: 1;
-  padding: 20px;
+  padding: 15px;
+}
 
-}
-.content{
+.content {
   display: flex;
   flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
-.student-details {
-  max-width: 800px;
-  max-height: 1000px;
-  background-color: #0c84a0; 
-  height: 60%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+
+/* VC Image */
+.VC-img {
+  width: 100%;
+  max-width: 600px;
   height: auto;
-  position: relative;
-  width: 90%;
-  margin: 0 auto;
+}
+
+/* Student details */
+.student-details {
+  background-color: #0c84a0;
   border: 1px solid #ddd;
-  padding: 20px;
-  margin-top: 10px;
   border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 700px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.student-details h2 {
-  text-align: left;
-  color: #383636;
-   margin-top: -10px;
-}
-.student-profile{
-  padding: 10px;
-}
-#rollno{
-  font-family: 'ubuntu', serif;
-  font-size: large;
-  font-weight: 300;
-  color: white;
-  padding-left: 5px;
-}
-#email{
-  font-family: 'ubuntu', serif;
-  font-size: large;
-  font-weight: 300;
-  color: white;
-  padding-left: 5px;
-}
-.detail-row {
-  display: flex;
-  padding-left: 10px;
+.student-profile {
+  color: #fff;
   margin-bottom: 10px;
 }
 
-.detail-label {
-  font-weight: bold;
-  color: #383636;
-}
-
-.detail-value {
-  color: #fffcfc;
-  padding-left: 10px;
-}
-
-
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .student-details {
-      padding: 15px;
-  }
-  .detail-row {
-      flex-direction: column;
-  }
-  .detail-label{
-    margin-bottom: 5px;
-  }
-}
-.content{
+.detail-row {
   display: flex;
- 
+  flex-wrap: wrap;
   align-items: center;
-}
-.VC-img{
-  height: 60%;
-  width: 80%;
-  cursor: pointer;
-  max-width: 100%;
-}
-.student-img{
-  height: 200px;
-  width: 200px;  
-}
-#displayImage{
-  height: 180px;
-  width: 200px;   
-  padding-bottom: 20px;
-  cursor: pointer;
-}
-strong{
-  margin-top: 40px;
-  font-family: 'ubuntu', serif;
- 
-}
-.student-img h3{
-  text-align: left;
-  color: #383636;
-  margin-top: 10px;
-  padding-bottom: 5px;
+  margin-bottom: 10px;
 }
 
-#attendance{
-  font-family: 'ubuntu', serif;
-  font-size: large;
-  font-weight: 300;
-  color: white;
-  padding-left: 5px; 
- 
+.detail-row h2 {
+  font-size: 16px;
+  color: #fff;
+  margin-right: 10px;
 }
-#carouselExampleIndicators{
-  max-width: 700px;
-  max-height: 700px;
+
+#name, #rollno, #email, #attendance {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
 }
-.footer-img{
-  height: 55%;
+
+/* Student image section */
+.student-img {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.student-img h3 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+#displayImage {
   width: 100%;
-  cursor: pointer;
+  max-width: 200px;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Carousel */
+#carouselExampleIndicators {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Footer */
+.footer-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Media Queries for Small Devices */
+@media (max-width: 768px) {
+  .header-logo {
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 0;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .student-details {
+    padding: 15px;
+  }
+
+  .student-img {
+    text-align: center;
+  }
+
+  .VC-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-logo div {
+    font-size: 12px;
+  }
+
+  .detail-row h2,
+  #name, #rollno, #email, #attendance {
+    font-size: 14px;
+  }
 }
