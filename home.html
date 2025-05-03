@@ -50,18 +50,20 @@
 </head>
 <body>
       <header>
-        <img src="images/AKNU_logo.jpeg" alt="college logo" class="aknu-logo">
-        <button class="hamburger" onclick="toggleMenu()">☰</button>
-        <div class="header-logo" id="navMenu">
-          <div>HOME</div>
-          <div>ABOUT US</div>
-          <div>ADMINISTRATION</div>
-          <div>FACILITIES</div>
-          <div>DEPARTMENT</div>
-          <div>SERVICE</div>
-          <div>CONTACT US</div>
-        </div>
-      </header>
+    <img src="images/AKNU_logo.jpeg" alt="college logo" class="aknu-logo">
+    <nav class="navbar">
+      <button class="menu-toggle" onclick="toggleMenu()">Menu ☰</button>
+      <div class="header-logo">
+        <div>HOME</div>
+        <div>ABOUT US</div>
+        <div>ADMINISTRATION</div>
+        <div>FACILITIES</div>
+        <div>DEPARTMENT</div>
+        <div>SERVICE</div>
+        <div>CONTACT US</div>
+      </div>
+    </nav>
+  </header>
   
 
     <marquee class="notification" onmouseover="this.stop();" onmouseout="this.start();">
@@ -140,10 +142,9 @@
         <img src="images/home-footer.jpeg" class="footer-img" alt="footer-img">
     </footer>
     <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>  
-    <script>
+   <script>
       function toggleMenu() {
-        const menu = document.getElementById("navMenu");
-        menu.classList.toggle("show");
+        document.querySelector('.header-logo').classList.toggle('show');
       }
     </script>
     
