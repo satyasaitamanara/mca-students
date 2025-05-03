@@ -17,32 +17,16 @@ body {
   width: 100%;
   height: auto;
 }
-
-/* Base styles */
-/* Header container */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #0c84a0;
-  padding: 10px 15px;
-  flex-wrap: wrap;
-  position: relative;
-}
-
-/* College logo */
-.aknu-logo {
-  width: 60px;
-  height: auto;
-}
-
-/* Navigation */
+/* Navigation Base */
 .header-logo {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
+  background-color: #0c84a0;
+  padding: 10px;
+  gap: 10px;
+  width: 100%;              /* Full width */
+  box-sizing: border-box;   /* Ensure padding doesn't overflow */
 }
 
 .header-logo div {
@@ -52,22 +36,55 @@ header {
   white-space: nowrap;
 }
 
-/* Hamburger button */
-.hamburger {
+/* Toggle button (hidden by default) */
+.menu-toggle {
   display: none;
-  font-size: 24px;
-  background: none;
-  border: none;
+  background: #0c84a0;
   color: white;
+  border: none;
+  font-size: 24px;
   cursor: pointer;
+  padding: 10px;
 }
 
-/* Mobile view */
+/* Navbar container full-width */
+nav.navbar {
+  width: 100%;
+  background-color: #0c84a0;
+  box-sizing: border-box;
+}
+
+/* Responsive for mobile */
 @media (max-width: 768px) {
-  header {
-    flex-direction: row;
-    align-items: center;
+  .header-logo {
+    flex-direction: column;
+    display: none;
+    text-align: center;
   }
+
+  .header-logo.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    align-self: flex-end;
+  }
+}
+
+/* Ensure horizontal layout is restored on larger screens */
+@media (min-width: 769px) {
+  .header-logo {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+}
+
 
   .hamburger {
     display: block;
