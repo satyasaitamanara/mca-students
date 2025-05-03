@@ -18,15 +18,31 @@ body {
   height: auto;
 }
 
+/* Base styles */
+/* Header container */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0c84a0;
+  padding: 10px 15px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* College logo */
+.aknu-logo {
+  width: 60px;
+  height: auto;
+}
+
 /* Navigation */
 .header-logo {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  background-color: #0c84a0;
-  padding: 10px;
-  gap: 10px;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .header-logo div {
@@ -35,6 +51,59 @@ body {
   cursor: pointer;
   white-space: nowrap;
 }
+
+/* Hamburger button */
+.hamburger {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
+  header {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: block;
+    margin-left: auto;
+  }
+
+  .header-logo {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #0c84a0;
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 10px;
+  }
+
+  .header-logo.show {
+    display: flex;
+  }
+
+  .header-logo div {
+    padding: 8px 0;
+  }
+}
+
+  header {
+    position: relative;
+    background-color: #0c84a0;
+  }
+
+  .aknu-logo {
+    width: 50px;
+    height: auto;
+  }
+}
+
 
 /* Notification */
 .notification a {
@@ -101,6 +170,63 @@ main {
   font-weight: 400;
 }
 
+/* Enhanced Student Details Card */
+.student-details {
+  background: linear-gradient(135deg, #0c84a0, #127e7e);
+  border-radius: 12px;
+  padding: 25px;
+  width: 100%;
+  max-width: 700px;
+  color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.student-details:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+}
+
+.student-profile {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 10px;
+}
+
+/* Detail Rows */
+.detail-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-row:last-child {
+  border-bottom: none;
+}
+
+.detail-row h2 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  color: #ffeb3b;
+}
+
+#name,
+#rollno,
+#email,
+#attendance {
+  font-size: 15px;
+  font-weight: 400;
+  color: #e0f7fa;
+}
 /* Student image section */
 .student-img {
   margin-top: 20px;
@@ -110,13 +236,43 @@ main {
 .student-img h3 {
   color: #fff;
   margin-bottom: 10px;
+  font-size: 16px;
 }
 
+/* Updated student photo style */
 #displayImage {
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  border-radius: 5px;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #ffffffcc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#displayImage:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .student-details {
+    padding: 20px;
+  }
+
+  .detail-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .detail-row h2,
+  #name,
+  #rollno,
+  #email,
+  #attendance {
+    font-size: 14px;
+  }
 }
 
 /* Carousel */
