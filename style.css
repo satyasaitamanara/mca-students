@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -33,9 +34,14 @@ body {
 
 .header-logo div {
   color: white;
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
+}
+.header-logo div:hover {
+  color: #ffeb3b;
+  transition: color 0.3s ease;
 }
 
 /* Toggle button (hidden by default) */
@@ -47,6 +53,7 @@ body {
   font-size: 24px;
   cursor: pointer;
   padding: 10px;
+  margin: 0 auto;
 }
 
 /* Navbar container full-width */
@@ -56,16 +63,16 @@ nav.navbar {
   box-sizing: border-box;
 }
 
-/* Responsive for mobile */
 @media (max-width: 768px) {
   .header-logo {
     flex-direction: column;
-    display: none;
+    display: none; /* Hide by default */
     text-align: center;
+    width: 100%;
   }
 
   .header-logo.show {
-    display: flex;
+    display: flex; /* Show when class 'show' is added */
   }
 
   .menu-toggle {
@@ -74,18 +81,22 @@ nav.navbar {
   }
 }
 
-/* Ensure horizontal layout is restored on larger screens */
+
+/* Responsive for mobile */
 @media (min-width: 769px) {
   .header-logo {
     display: flex !important;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row; /* Change this from column to row */
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
   }
 
   .menu-toggle {
     display: none;
   }
 }
+
 
 
 
@@ -145,15 +156,15 @@ main {
 }
 
 .detail-row h2 {
-  font-size: 16px;
+  font-size: 25px;
   color: #fff;
   margin-right: 10px;
 }
 
 #name, #rollno, #email, #attendance {
   color: #fff;
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 /* Enhanced Student Details Card */
@@ -209,8 +220,8 @@ main {
 #rollno,
 #email,
 #attendance {
-  font-size: 15px;
-  font-weight: 400;
+  font-size: 17px;
+  font-weight: 500;
   color: #e0f7fa;
 }
 /* Student image section */
@@ -222,13 +233,13 @@ main {
 .student-img h3 {
   color: #fff;
   margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 /* Updated student photo style */
 #displayImage {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #ffffffcc;
@@ -257,7 +268,7 @@ main {
   #rollno,
   #email,
   #attendance {
-    font-size: 14px;
+    font-size: 17px;
   }
 }
 
